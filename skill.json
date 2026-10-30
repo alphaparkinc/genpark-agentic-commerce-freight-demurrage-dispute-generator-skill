@@ -1,0 +1,75 @@
+{
+  "name": "genpark-agentic-commerce-freight-demurrage-dispute-generator-skill",
+  "version": "1.0.0",
+  "title": "Ocean Freight Demurrage OSRA-22 Dispute Dismissal Generator Skill",
+  "description": "Ocean Shipping Reform Act (OSRA-22) detention invoice validator, port appointment unavailability dispute generator, and FMC \u00a7 41104 charge dismissal packet compiler. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "demurrage",
+    "osra-22",
+    "fmc-regulations",
+    "ocean-shipping",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "audit_demurrage_appointment_unavailability",
+      "description": "Prove container demurrage fees were unlawfully assessed during periods when marine terminal had zero truck gate appointments.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "container_num": {
+            "type": "string"
+          },
+          "terminal_appointment_attempts": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "billed_demurrage_usd": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "container_num",
+          "terminal_appointment_attempts",
+          "billed_demurrage_usd"
+        ]
+      }
+    },
+    {
+      "name": "generate_fmc_inaccurate_invoice_charge_complaint",
+      "description": "Generate formal FMC 46 C.F.R. \u00a7 541 complaint seeking full dismissal and statutory civil penalties against ocean carrier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "carrier_scac": {
+            "type": "string"
+          },
+          "container_num": {
+            "type": "string"
+          },
+          "invoice_amount_usd": {
+            "type": "number"
+          },
+          "dispute_reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "carrier_scac",
+          "container_num",
+          "invoice_amount_usd"
+        ]
+      }
+    }
+  ]
+}
